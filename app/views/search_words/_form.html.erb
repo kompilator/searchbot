@@ -1,0 +1,27 @@
+<%= form_with(model: search_word, local: true) do |form| %>
+  <% if search_word.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(search_word.errors.count, "error") %> prohibited this search_word from being saved:</h2>
+
+      <ul>
+        <% search_word.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :word %>
+    <%= form.text_field :word %>
+  </div>
+
+  <div class="field">
+    <%= form.label :isSearched? %>
+    <%= form.check_box :isSearched? %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
